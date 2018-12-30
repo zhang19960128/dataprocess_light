@@ -1,22 +1,22 @@
 the average lattice constant is:
-nan nan nan
+3.93923 3.94183 3.93086
 the average B site cations displacement is:
-nan nan nan
+0.00053492 0.00203791 0.0607765
 the average Asite one displacement is:
-nan nan nan
+0.000991582 0.000374334 0.026501
 the average Asite two displacement is:
 nan nan nan
 the average O6 tilt angle is:
-nan
+12.4027
 the averaget O6 tilt angle in three direction is:
-nan nan nan
+11.9805 12.9905 12.237
 the scalar average B site displacement is:
-nan
+0.126006
 the scalar average Asite one dispalcement is:
-nan
+0.115923
 the scalar average Asite two displacement is:
-nan
+-nan
 the polarization is (absolute value):
-nan nan nan
+0.00170304 0.00420431 0.135677
 polarization variance is:
-nan nan nan
+4.12252e-08 4.98173e-08 1.07251e-07

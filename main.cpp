@@ -37,8 +37,11 @@ int main(int argc,char** argv){
 	}
 	for(size_t i=0;i<3*cell*cell*cell;i++){
 		oxygen[i].type='o';
-		oxygen[i].charge=-3.32;
+		oxygen[i].charge=-2.08;
 	}
+	for(size_t i=0;i<cell*cell*cell;i++){
+	oxygen[i].charge=-5.80;
+}
 	std::string la_pattern="ITEM: BOX BOUNDS pp pp pp";
 	std::string coord_pattern="ITEM: ATOMS x y z ";
 	std::list<double> disp_allba_x;
@@ -193,7 +196,7 @@ int main(int argc,char** argv){
 	for(size_t i=0;i<3;i++){
 		good.insert(good.end(),std::pair <double,double> (pall[i],var[i]));
 	}
-	sort(pall.begin(),pall.end());
+//	sort(pall.begin(),pall.end());
 	fileout<<"the polarization is (absolute value):"<<std::endl;
 	fileout<<pall[0]<<" "<<pall[1]<<" "<<pall[2]<<std::endl;
 	fileout<<"polarization variance is:"<<std::endl;
