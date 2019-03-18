@@ -109,7 +109,7 @@ double variance(std::list<double> &input){
 	}
 	return sum/input.size();
 }
-double* polar_average(atom *A,atom *B,atom *oxygen,double *p,int cell){
+double* polar_average(atom *A,atom *B,atom *oxygen,double *p,int cell,std::vector<std::list<double> >& polar_x,std::vector<std::list<double> >& polar_y,std::vector<std::list<double> >& polar_z){
 	std::list<double> px;
 	std::list<double> py;
 	std::list<double> pz;
@@ -141,6 +141,9 @@ double* polar_average(atom *A,atom *B,atom *oxygen,double *p,int cell){
 			}
 			sum_together(sum,dist,3);
 		}
+		polar_x[i].push_back(sum[0]/volume*16);
+		polar_y[i].push_back(sum[1]/volume*16);
+		polar_z[i].push_back(sum[2]/volume*16);
 		px.push_back(sum[0]/volume*16);//16 is aim at converting the units from e to C
 		py.push_back(sum[1]/volume*16);//16 is aim at converting the units from e to C
 		pz.push_back(sum[2]/volume*16);//16 is aim at converting the units from e to C

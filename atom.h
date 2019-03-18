@@ -2,6 +2,7 @@
 #define atom_h
 #include <iostream>
 #include <list>
+#include <vector>
 typedef struct Atom{
 	double position[3];
 	char type;
@@ -15,7 +16,7 @@ double* displace_average_A(atom *A,atom *oxygen,double* p,int cell);
 double* displace_average_B(atom *B,atom *oxygen,double* p,int cell);
 double* displace_average_Ba(atom *A,atom *oxygen,double* p,int cell);
 double* displace_average_Ca(atom *A,atom *oxygen,double* p,int cell);
-double* polar_average(atom *A,atom *B,atom *oxygen,double* p,int cell);
+double* polar_average(atom *A,atom *B,atom *oxygen,double* p,int cell,std::vector<std::list<double> >& polar_x,std::vector<std::list<double> >& polar_y,std::vector<std::list<double> >& polar_z);
 double displace_average_B_scalar(atom *B,atom *oxygen,double* p,int cell);
 double displace_average_Ba_scalar(atom *A,atom *oxygen,double* p,int cell);
 double displace_average_Ca_scalar(atom *A,atom *oxygen,double* p,int cell);

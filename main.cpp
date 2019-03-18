@@ -50,6 +50,9 @@ int main(int argc,char** argv){
 	std::list<double> disp_allca_x;
 	std::list<double> disp_allca_y;
 	std::list<double> disp_allca_z;
+	std::vector<std::list<double>> polar_x(cell*cell*cell);
+	std::vector<std::list<double>> polar_y(cell*cell*cell);
+	std::vector<std::list<double>> polar_z(cell*cell*cell);
 	std::list<double> disp_ca_scalar;
 	std::list<double> disp_ba_scalar;
 	std::list<double> disp_B_scalar;
@@ -120,7 +123,7 @@ int main(int argc,char** argv){
 			disp_allca_x.push_back(dispca[0]);
 			disp_allca_y.push_back(dispca[1]);
 			disp_allca_z.push_back(dispca[2]);
-			polar=polar_average(A,B,oxygen,period,cell);
+			polar=polar_average(A,B,oxygen,period,cell,polar_x,polar_y,polar_z);
 			//sort(polar,3);
 			px.push_back(polar[0]);
 			py.push_back(polar[1]);
@@ -204,5 +207,11 @@ int main(int argc,char** argv){
 	dump.close();
 	calist.close();
 	fileout.close();
+	std::fstream polar_site;
+	polar_site.open("Polarization_SITE.txt",std::fstream::out);
+	for(size_t i=0;i<cell*cell*cell;i++){
+		polar_site<<average(polar_x[i])<<" "<<average(polar_y[i])<<" "<<average(polar_z[i])<<std::endl;
+	}
+	polar_site.close();
 	return 0;
 }
