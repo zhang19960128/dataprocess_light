@@ -78,7 +78,7 @@ int main(int argc,char** argv){
 	double x1,x2;
 	size_t signal=0;
 	for(std::string line;getline(dump,line);){
-		if(la_pattern==line){
+		if(line.find(la_pattern)!=std::string::npos){
 			for(size_t i=0;i<3;i++){
 			dump>>x1;
 			dump>>x2;
@@ -88,7 +88,7 @@ int main(int argc,char** argv){
 			la_y.push_back(period[1]/cell);
 			la_z.push_back(period[2]/cell);
 		}
-	  if(coord_pattern==line){
+	  if(line.find(coord_pattern)!=std::string::npos){
 			std::fstream fs;
 			for(size_t i=0;i<cell*cell*cell;i++){
 				for(size_t j=0;j<3;j++){
