@@ -94,16 +94,19 @@ int main(int argc,char** argv){
 				for(size_t j=0;j<3;j++){
 					dump>>A[i].position[j];
 				}
+				getline(dump,line);
 			}
 			for(size_t i=0;i<cell*cell*cell;i++){
 				for(size_t j=0;j<3;j++){
 					dump>>B[i].position[j];
 				}
+				getline(dump,line);
 			}
 			for(size_t i=0;i<3*cell*cell*cell;i++){
 				for(size_t j=0;j<3;j++){
 				dump>>oxygen[i].position[j];
 				}
+				getline(dump,line);
 			}
 			dispB=displace_average_B(B,oxygen,period,cell);
 			disp_scalar=displace_average_B_scalar(B,oxygen,period,cell);
