@@ -42,6 +42,8 @@ int main(int argc,char** argv){
 	for(size_t i=0;i<cell*cell*cell;i++){
 	oxygen[i].charge=-5.80;
 }
+    std::fstream changeTi;
+    changeTi.open("Ti_time.txt",std::fstream::out);
 	std::string la_pattern="ITEM: BOX BOUNDS pp pp pp";
 	std::string coord_pattern="ITEM: ATOMS x y z ";
 	std::list<double> disp_allba_x;
@@ -114,6 +116,9 @@ int main(int argc,char** argv){
 			disp_allB_x.push_back(dispB[0]);
 			disp_allB_y.push_back(dispB[1]);
 			disp_allB_z.push_back(dispB[2]);
+            changeTi<<dispB[0]<<" "<<dispB[1]<<" "<<dispB[2];
+            changeTi<<" "<<disp_scalar<<std::endl;
+            std::cout<<signal++<<std::endl;
 			dispba=displace_average_Ba(A,oxygen,period,cell);
 			disp_scalar=displace_average_Ba_scalar(A,oxygen,period,cell);
 			disp_ba_scalar.push_back(disp_scalar);
@@ -216,5 +221,6 @@ int main(int argc,char** argv){
 		polar_site<<average(polar_x[i])<<" "<<average(polar_y[i])<<" "<<average(polar_z[i])<<std::endl;
 	}
 	polar_site.close();
+    changeTi.close();
 	return 0;
 }
